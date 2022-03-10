@@ -35,17 +35,19 @@ const switchTab = (id) => {
     document.getElementById("posts").style.display = "grid";
     document.getElementById("liked").style.display = "none";
     document.getElementById("reported").style.display = "none";
+    document.getElementById("question").style.display = "block";
   } else if (id === "liked") {
     document.getElementById("liked").style.display = "block";
     document.getElementById("posts").style.display = "none";
     document.getElementById("reported").style.display = "none";
+    document.getElementById("question").style.display = "none";
 
     displayLikedPosts();
   } else {
     document.getElementById("reported").style.display = "block";
     document.getElementById("posts").style.display = "none";
     document.getElementById("liked").style.display = "none";
-
+    document.getElementById("question").style.display = "none";
     displayReportedPosts();
   }
 };
@@ -148,6 +150,7 @@ const displayLikedPosts = () => {
     return;
   }
   document.getElementById("liked").textContent = '';
+  document.getElementById("liked").innerHTML = `<h1>Liked posts</h1>`;
   likedPosts.forEach((post) => {
     const div = createPost(post);
     document.getElementById("liked").appendChild(div);
@@ -160,6 +163,7 @@ const displayReportedPosts = () => {
     return;
   }
   document.getElementById("reported").textContent = '';
+  document.getElementById("reported").innerHTML = `<h1>Reported posts</h1>`;
   reportedPosts.forEach((post) => {
     const div = createPost(post);
     document.getElementById("reported").appendChild(div);
